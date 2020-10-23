@@ -5,7 +5,8 @@
 1.1.1-[x] Necesario recoger texto introducido en el buscador -[x] filtrar por nombre
 
 1.2-[x] Parsear datos del servidor
-1.3-[] Pintar una foto y título de la serie en el html
+1.3-[x] Pintar una foto
+1.3.1- [] pintar título de la serie en el html
 1.4-[] pintar todas las series que contengan la palabra introducida
 1.5-[] Si no hay foto mostrar img de relleno
 
