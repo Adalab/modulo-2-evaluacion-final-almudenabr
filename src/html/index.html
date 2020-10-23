@@ -20,19 +20,32 @@
         <form class="formContainer__form" action="" method="get">
           <label for="title">Nombre</label>
           <input
-            class="formContainer__form--input"
+            class="formContainer__form--input js-input"
             placeholder="Escribe aquí tu serie"
             id="title"
             type="text"
             name="title"
             required
           />
-          <input type="button" value="Buscar mi serie favorita" />
+          <input
+            class="js-btn"
+            type="button"
+            id="btn"
+            value="Buscar mi serie favorita"
+          />
         </form>
       </div>
-      <section class="section1">
-        <h2>Mis series favoritas</h2>
-      </section>
+      <div class="sectionContainer">
+        <section class="sectionContainer__section1">
+          <h2>Mis series favoritas</h2>
+          <p>aquí las favoritas</p>
+        </section>
+        <section>
+          <ul class="sectionContainer__section2">
+            Aquí pintan las series
+          </ul>
+        </section>
+      </div>
     </main>
     <div class="page">
       <include
