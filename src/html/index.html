@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>M2 Evaluación final</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Grandstander:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
 
   <body>
-    Hola mundo!!
+    <header>
+      <h1 class="header">Buscador de series</h1>
+    </header>
+    <main>
+      <div class="formContainer">
+        <form class="formContainer__form" action="" method="get">
+          <label for="title">Nombre</label>
+          <input
+            class="formContainer__form--input"
+            placeholder="Escribe aquí tu serie"
+            id="title"
+            type="text"
+            name="title"
+            required
+          />
+          <input type="button" value="Buscar mi serie favorita" />
+        </form>
+      </div>
+      <section class="section1">
+        <h2>Mis series favoritas</h2>
+      </section>
+    </main>
     <div class="page">
       <include
         src="./partials/header.html"

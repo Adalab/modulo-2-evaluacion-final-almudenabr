@@ -1,7 +1,23 @@
 body {
   padding: 2rem;
   height: 100vh;
-  background-image: url("../images/bg-adalab.png");
   background-color: $color-bg;
   font-family: $font-main;
+  background-image: url(../images/backgroundCine.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.formContainer {
+  height: 100px;
+  text-align: center;
+  padding: 45px 0 0 45px;
+
+  &__form--input {
+    width: 200px;
+  }
+}
+
+.section1 {
+  padding: 150px 0 0 50px;
 }
