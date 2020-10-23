@@ -22,7 +22,7 @@ function searchSerial() {
       showedSerials = data; //hago un array con las series
       console.log(showedSerials);
       paintTitle();
-      paintSerials();
+      paintCard();
     });
 }
 
@@ -45,7 +45,7 @@ function paintTitle() {
 
 //function to paint the serial img and add it to DOM
 
-function paintSerials() {
+function paintCard() {
   const newImg = document.createElement("img"); //creo el <img>
 
   newImg.src = showedSerials[0].show.image.medium; //añado a html la src de img: camino de la img
