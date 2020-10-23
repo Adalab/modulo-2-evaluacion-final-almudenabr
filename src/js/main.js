@@ -5,7 +5,7 @@ console.log("Hola");
 const btnSearch = document.querySelector(".js-btn");
 
 //array de las series que me va a mostrar, que coge del fetch
-let showedSerials = [];
+let dataSerials = [];
 
 //función escuchadora del click-al hacer click recoje los datos que ha traido del servidor
 //function listener of click - get data from server when clicking
@@ -19,42 +19,39 @@ function searchSerial() {
     })
     .then(function (data) {
       // me da todo lo del json
-      showedSerials = data; //hago un array con las series
-      console.log(showedSerials);
-      paintTitle();
+      dataSerials = data; //hago un array con las series
+      console.log(dataSerials);
+      // paintTitle();
       paintCard();
     });
 }
-
-let title = "";
-let titleLi = "";
 let newLi = "";
 let newParagraph = "";
-
-//function to paint the title of serial (<li><p>title) and add to DOM
-function paintTitle() {
-  newLi = document.createElement("li"); //creo el <li>
-  newParagraph = document.createElement("p"); //creo <p>
-
-  title = showedSerials[0].show.name;
-  titleLi = document.createTextNode(`${title}`); //create title of serial to be printed
-
-  newParagraph.appendChild(titleLi); //add title to <p>
-  newLi.appendChild(newParagraph); //add <p> with title to <li>
-}
-
-//function to paint the serial img and add it to DOM
+let newDiv = "";
+let title = "";
+let newTitle = "";
 
 function paintCard() {
-  const newImg = document.createElement("img"); //creo el <img>
+  for (let i = 0; i < dataSerials.length; i++) {
+    title = dataSerials[i].show.name;
+    newTitle = document.createTextNode(`${title}`); //create title of serial to be printed
 
-  newImg.src = showedSerials[0].show.image.medium; //añado a html la src de img: camino de la img
-  newImg.alt = "Cartel de tu serie favorita"; //añado alt a img
+    const newImg = document.createElement("img"); //creo el <img>
+    newImg.src = dataSerials[i].show.image.medium; //añado a html la src de img: camino de la img
+    newImg.alt = "Cartel de tu serie favorita"; //añado alt a img
 
-  newLi.appendChild(newImg); //meto <img> en <li>
-  console.log(newImg);
+    newParagraph = document.createElement("p"); //creo <p>
+    newParagraph.appendChild(newTitle); //add title to <p>
 
-  document.querySelector("ul").appendChild(newLi); //meto <li>(que ya tiene la img en <ul>)
+    newDiv = document.createElement("div"); //creo <div>
+    newDiv.appendChild(newImg); //meto <img> en <div>
+
+    newLi = document.createElement("li"); //creo el <li>
+    newLi.appendChild(newParagraph); //add <p> with title to <li>
+    newLi.appendChild(newDiv); //meto <div> en <li>
+
+    document.querySelector("ul").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p> en <ul>)
+  }
 }
 
 btnSearch.addEventListener("click", searchSerial);
