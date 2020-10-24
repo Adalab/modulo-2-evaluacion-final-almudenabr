@@ -8,8 +8,8 @@
 1.3-[x] Pintar una foto
 1.3.1- [x] pintar título de la serie en el html
 1.4-[x] pintar todas las series que contengan la palabra introducida
-1.5-[] Si no hay foto mostrar img de relleno
-1.6-[] Al hacer nueva búsqueda borrar la búsqueda anterior
+1.5-[x] Si no hay foto mostrar img de relleno
+1.6-[x] Al hacer nueva búsqueda borrar la búsqueda anterior
 
 2-[] MARCAR COMO FAVORITAS LAS SELECCIONADAS POR LA USUARIA
 
