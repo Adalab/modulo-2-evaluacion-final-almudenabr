@@ -3,7 +3,8 @@
 console.log("Hola");
 
 const btnSearch = document.querySelector(".js-btn");
-const ul = document.querySelector(".js-containerCards");
+
+let section2 = document.querySelector(".js-section2");
 
 //array de las series que me va a mostrar, que coge del fetch
 let dataSerials = [];
@@ -26,6 +27,7 @@ function searchSerial() {
       paintCard();
     });
 }
+let newUl = "";
 let newLi = "";
 let newParagraph = "";
 let newDiv = "";
@@ -33,9 +35,12 @@ let title = "";
 let newTitle = "";
 
 function paintCard() {
+  const ul = document.querySelector(".js-containerCards");
+
   if (ul != null) {
-    ul.remove();
+    ul.innerHTML = "";
   }
+
   for (let i = 0; i < dataSerials.length; i++) {
     title = dataSerials[i].show.name;
     newTitle = document.createTextNode(`${title}`); //create title of serial to be printed
@@ -54,7 +59,7 @@ function paintCard() {
     newLi.appendChild(newParagraph); //add <p> with title to <li>
     newLi.appendChild(newDiv); //meto <div> en <li>
 
-    document.querySelector("ul").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p> en <ul>)
+    document.querySelector("ul").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p>) en <ul>
   }
 }
 
