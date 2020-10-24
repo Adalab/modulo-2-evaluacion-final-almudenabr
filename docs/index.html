@@ -5,14 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>M2 Evaluación final</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Grandstander:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
 
   <body>
-    Hola mundo!!
+    <header>
+      <h1 class="header">Buscador de series</h1>
+    </header>
+    <main>
+      <div class="formContainer">
+        <form class="formContainer__form" action="" method="get">
+          <label for="title">Nombre</label>
+          <input
+            class="formContainer__form--input js-input"
+            placeholder="Escribe aquí tu serie"
+            id="title"
+            type="text"
+            name="title"
+            required
+            value="tronos"
+          />
+          <input
+            class="js-btn"
+            type="button"
+            id="button"
+            value="Buscar mi serie favorita"
+          />
+        </form>
+      </div>
+      <div class="sectionContainer">
+        <section class="sectionContainer__section1">
+          <h2>Mis series favoritas</h2>
+          <p>aquí las favoritas</p>
+        </section>
+        <section>
+          <ul class="sectionContainer__section2 js-containerCards">
+            Aquí pintan las series
+          </ul>
+        </section>
+      </div>
+    </main>
     <div class="page">
       <!-- <header class="page__header">
         <img src="./assets/images/logo-adalab.png" alt="Adalab">
@@ -21,13 +56,13 @@
 
       <main class="page__main"></main>
 
-      <!-- <footer class="page__footer">
+      <footer class="page__footer">
         <small>
           &copy; Todos los derechos reservados
-          <!-- <a class="link__adalab" href="https://adalab.es">Adalab</a> -->
+          <!-- <!-- <a class="link__adalab" href="https://adalab.es">Adalab</a> -->
 
         </small>
-      </footer> -->
+      </footer>
 
     </div>
     <script src="./assets/js/main.js"></script>

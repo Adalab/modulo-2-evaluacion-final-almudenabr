@@ -3,6 +3,7 @@
 console.log("Hola");
 
 const btnSearch = document.querySelector(".js-btn");
+const ul = document.querySelector(".js-containerCards");
 
 //array de las series que me va a mostrar, que coge del fetch
 let dataSerials = [];
@@ -32,6 +33,9 @@ let title = "";
 let newTitle = "";
 
 function paintCard() {
+  if (ul != null) {
+    ul.remove();
+  }
   for (let i = 0; i < dataSerials.length; i++) {
     title = dataSerials[i].show.name;
     newTitle = document.createTextNode(`${title}`); //create title of serial to be printed
