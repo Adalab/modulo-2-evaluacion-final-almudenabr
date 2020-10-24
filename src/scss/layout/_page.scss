@@ -17,14 +17,21 @@ body {
     width: 200px;
   }
 }
-.sectionContainer {
-  &__section1 {
+.container {
+  display: flex;
+  justify-content: space-around;
+
+  &__containerFav {
     background: cyan;
   }
 
-  &__section2 {
-    background: crimson;
+  &__containerCards {
+    background: darkblue;
+    color: cornflowerblue;
+
+    &--cardsItem {
+      background: red;
+      color: darkblue;
+    }
   }
-  display: flex;
-  justify-content: space-around;
 }

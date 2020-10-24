@@ -1,1 +1,33 @@
-<main class="page__main"></main>
+<main>
+  <div class="formContainer">
+    <form class="formContainer__form" action="" method="get">
+      <label for="title">Nombre</label>
+      <input
+        class="formContainer__form--input js-input"
+        placeholder="Escribe aquí tu serie"
+        id="title"
+        type="text"
+        name="title"
+        required
+        value="dexter"
+      />
+      <input
+        class="js-btn"
+        type="button"
+        id="button"
+        value="Buscar mi serie favorita"
+      />
+    </form>
+  </div>
+  <div class="container">
+    <section class="container__containerFav">
+      <h2>Mis series favoritas</h2>
+      <p>aquí las favoritas</p>
+    </section>
+    <section class="js-section2">
+      <ul class="container__containerCards js-containerCards">
+        Aquí pintan las series
+      </ul>
+    </section>
+  </div>
+</main>
