@@ -10,51 +10,49 @@
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
-
   <body>
-    <header>
-      <h1 class="header">Buscador de series</h1>
-    </header>
-    <main>
-      <div class="formContainer">
-        <form class="formContainer__form" action="" method="get">
-          <label for="title">Nombre</label>
-          <input
-            class="formContainer__form--input js-input"
-            placeholder="Escribe aquí tu serie"
-            id="title"
-            type="text"
-            name="title"
-            required
-            value="tronos"
-          />
-          <input
-            class="js-btn"
-            type="button"
-            id="button"
-            value="Buscar mi serie favorita"
-          />
-        </form>
-      </div>
-      <div class="sectionContainer">
-        <section class="sectionContainer__section1">
-          <h2>Mis series favoritas</h2>
-          <p>aquí las favoritas</p>
-        </section>
-        <section>
-          <ul class="sectionContainer__section2 js-containerCards">
-            Aquí pintan las series
-          </ul>
-        </section>
-      </div>
-    </main>
     <div class="page">
       <!-- <header class="page__header">
         <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1>Bienvenidos a Adalab</h1>
+        <h1></h1>
       </header> -->
+      <header>
+        <h1 class="header">Buscador de series</h1>
+      </header>
 
-      <main class="page__main"></main>
+      <main>
+        <div class="formContainer">
+          <form class="formContainer__form" action="" method="get">
+            <label for="title">Nombre</label>
+            <input
+              class="formContainer__form--input js-input"
+              placeholder="Escribe aquí tu serie"
+              id="title"
+              type="text"
+              name="title"
+              required
+              value="dexter"
+            />
+            <input
+              class="js-btn"
+              type="button"
+              id="button"
+              value="Buscar mi serie favorita"
+            />
+          </form>
+        </div>
+        <div class="container">
+          <section class="container__containerFav">
+            <h2>Mis series favoritas</h2>
+            <p>aquí las favoritas</p>
+          </section>
+          <section class="js-section2">
+            <ul class="container__containerCards js-containerCards">
+              Aquí pintan las series
+            </ul>
+          </section>
+        </div>
+      </main>
 
       <footer class="page__footer">
         <small>

@@ -11,7 +11,7 @@ let favoritesList = [];
 
 //función escuchadora del click-al hacer click recoje los datos que ha traido del servidor
 //function listener of click - get data from server when clicking
-function searchSerial() {
+function getData() {
   const input = document.querySelector(".js-input").value; //value entered in input
 
   fetch(`//api.tvmaze.com/search/shows?q=${input}`) // ahora solo tengo las que continen palabra: girls
@@ -22,9 +22,11 @@ function searchSerial() {
       // me da todo lo del json
       dataSerials = data; //hago un array con las series
       console.log(dataSerials);
+      console.log("entro en getData");
       // paintTitle();
       paintCard();
       listenFav();
+      setLocalStorage();
     });
 }
 let newUl = "";
@@ -35,12 +37,6 @@ let title = "";
 let newTitle = "";
 
 function paintCard() {
-  const ul = document.querySelector(".js-containerCards");
-
-  if (ul != null) {
-    ul.innerHTML = ""; //vaciar <ul> html
-  }
-
   for (let i = 0; i < dataSerials.length; i++) {
     title = dataSerials[i].show.name;
     newTitle = document.createTextNode(`${title}`); //create title of serial to be printed
@@ -65,7 +61,7 @@ function paintCard() {
 
     newLi.setAttribute("class", "js-cardsItem"); // add class to <li>
     newLi.setAttribute("id", `${i}`); //add id to <li>
-    newLi.setAttribute("class", "container__containerCards--cardsItem");
+    // newLi.setAttribute("class", "container__containerCards--cardsItem");
 
     newLi.appendChild(newParagraph); //add <p> with title to <li>
     newLi.appendChild(newDiv); //meto <div> en <li>
@@ -74,31 +70,110 @@ function paintCard() {
   }
 }
 
-//listen event click to select favorite
+// function classFavF() {
+//   for (let i = 0; i < favoritesList.length; i++) {
+//     let classFav;
+
+//     const indexFav = favoritesList.indexOf(i);
+//     const theFavorite = indexFav != -1;
+
+//     if (indexFav === true) {
+//       classFav = "container__containerCards--cardsItem";
+//     } else {
+//       classFav = "";
+//     }
+//   }
+//   return classFav;
+// }
+
+// select fav and add it to favoritesList []
+
+let indexClicked = "";
 function selectFav(ev) {
-  const indexClicked = parseInt(ev.currentTarget.id); //clicked ev
+  indexClicked = parseInt(ev.currentTarget.id); //clicked ev
 
-  const indexFav = favoritesList.indexOf(indexClicked); //gives the position value of clicked element
-  const theFavorite = indexFav != -1;
+  const indexFav = favoritesList.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
+  const theFavorite = indexFav === -1;
 
-  if (theFavorite === false) {
+  if (theFavorite === true) {
     console.log("lo meto en fav");
     favoritesList.push(indexClicked); //add new clicked ev to []
+
     console.log(favoritesList);
   } else {
     console.log("lo quito de fav");
     favoritesList.splice(indexFav, 1);
+
     console.log(favoritesList);
   }
+}
+
+//add class to fav
+let array = [];
+function classFav() {
+  // const indexClicked = parseInt(ev.currentTarget.id); //clicked ev
+
+  //quiero cambiar la clase al <li>¨que coincide con el valor del elem clicado -indeClicked
+  const liClicked = array.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
+  const addClass = liClicked === -1;
+
+  if (addClass === true) {
+    console.log("añado clase a fav");
+
+    //  .setAttribute("class", "container__containerCards--items");
+    console.log(array);
+  } else {
+    console.log(" quito clase de fav");
+    // .setAttribute("class", "container__containerCards");
+    console.log(array);
+  }
+}
+
+// listen event click
+
+function clickCard(ev) {
+  selectFav(ev);
+  classFav(ev);
 }
 
 //event click to select fav
 function listenFav() {
   const cardsItems = document.querySelectorAll(".js-cardsItem"); //no puedo subirlo arriba porque aún no existe la class
   for (const cardsItem of cardsItems) {
-    cardsItem.addEventListener("click", selectFav);
+    cardsItem.addEventListener("click", clickCard);
   }
 }
 
-btnSearch.addEventListener("click", searchSerial);
+btnSearch.addEventListener("click", getData);
 btnSearch.click(); // para quitar al final--se clicka el bton al cargar página
+
+/////////////////////////
+
+//localStorage
+
+// function setLocalStorage() {
+//   localStorage.setItem("dataSerials", JSON.stringify(dataSerials));
+// }
+
+//si queremos guardar en localStorage los favoritos
+
+// function setLocalStorage() {
+//   localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
+//   console.log(localStorage);
+// }
+
+// //cuando localStorage tenga info guardada, pintar los datos guardados al recargar la pág
+
+// function getLocalStorage() {
+//   const localDataSerials = localStorage.getItem("favoritesList");
+//   //hago parse porque devuelve string y tengo que convertirlo a json
+//   const localDataSerialsJson = JSON.parse(localDataSerials);
+
+//   if (localDataSerialsJson === null) {
+//     getData();
+//   } else {
+//     dataSerials = localDataSerialsJson;
+//     paintCard();
+//     listenFav();
+//   }
+// }
