@@ -22,6 +22,7 @@ function getData() {
     .then(function (data) {
       // me da todo lo del json
       dataSerials = data; //hago un array con las series que ha buscado
+      // getLocalStorage();
       paintCard();
       paintFav();
       listenFav();
@@ -119,6 +120,7 @@ function clickCard(ev) {
   selectFav(ev);
   classFav();
   paintFav();
+  setLocalStorage();
 }
 
 //event click to select fav
