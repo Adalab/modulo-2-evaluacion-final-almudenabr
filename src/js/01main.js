@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("Hola");
-
 const btnSearch = document.querySelector(".js-btn");
 let section2 = document.querySelector(".js-section2");
 
@@ -11,6 +9,7 @@ let favoritesList = [];
 
 //función escuchadora del click-al hacer click recoje los datos que ha traido del servidor
 //function listener of click - get data from server when clicking
+
 function getData() {
   const input = document.querySelector(".js-input").value; //value entered in input
 
@@ -21,20 +20,20 @@ function getData() {
     .then(function (data) {
       // me da todo lo del json
       dataSerials = data; //hago un array con las series
-      console.log(dataSerials);
-      console.log("entro en getData");
-      // paintTitle();
+
       paintCard();
       listenFav();
-      setLocalStorage();
     });
 }
+
 let newUl = "";
 let newLi = "";
 let newParagraph = "";
 let newDiv = "";
 let title = "";
 let newTitle = "";
+
+//paint cards and html in DOM
 
 function paintCard() {
   for (let i = 0; i < dataSerials.length; i++) {
@@ -61,7 +60,6 @@ function paintCard() {
 
     newLi.setAttribute("class", "js-cardsItem"); // add class to <li>
     newLi.setAttribute("id", `${i}`); //add id to <li>
-    // newLi.setAttribute("class", "container__containerCards--cardsItem");
 
     newLi.appendChild(newParagraph); //add <p> with title to <li>
     newLi.appendChild(newDiv); //meto <div> en <li>
@@ -70,23 +68,7 @@ function paintCard() {
   }
 }
 
-// function classFavF() {
-//   for (let i = 0; i < favoritesList.length; i++) {
-//     let classFav;
-
-//     const indexFav = favoritesList.indexOf(i);
-//     const theFavorite = indexFav != -1;
-
-//     if (indexFav === true) {
-//       classFav = "container__containerCards--cardsItem";
-//     } else {
-//       classFav = "";
-//     }
-//   }
-//   return classFav;
-// }
-
-// select fav and add it to favoritesList []
+//add value of ev and add it to array favoritesList[]
 
 let indexClicked = "";
 function selectFav(ev) {
@@ -108,24 +90,22 @@ function selectFav(ev) {
   }
 }
 
-//add class to fav
-let array = [];
+//change class to fav
+
+let classFavList = [];
 function classFav() {
-  // const indexClicked = parseInt(ev.currentTarget.id); //clicked ev
-
   //quiero cambiar la clase al <li>¨que coincide con el valor del elem clicado -indeClicked
-  const liClicked = array.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
-  const addClass = liClicked === -1;
+  const liClicked = classFavList.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
+  const modifyClass = liClicked === -1;
 
-  if (addClass === true) {
-    console.log("añado clase a fav");
+  if (modifyClass === true) {
+    console.log("cambio clase a fav");
 
-    //  .setAttribute("class", "container__containerCards--items");
-    console.log(array);
-  } else {
-    console.log(" quito clase de fav");
-    // .setAttribute("class", "container__containerCards");
-    console.log(array);
+    const cardsItems = document.querySelectorAll(".js-cardsItem"); //no puedo subirlo arriba porque aún no existe la class
+
+    const li = cardsItems[indexClicked];
+
+    li.classList.toggle("container__containerCards--cardsItem");
   }
 }
 
@@ -137,6 +117,7 @@ function clickCard(ev) {
 }
 
 //event click to select fav
+
 function listenFav() {
   const cardsItems = document.querySelectorAll(".js-cardsItem"); //no puedo subirlo arriba porque aún no existe la class
   for (const cardsItem of cardsItems) {
@@ -146,34 +127,3 @@ function listenFav() {
 
 btnSearch.addEventListener("click", getData);
 btnSearch.click(); // para quitar al final--se clicka el bton al cargar página
-
-/////////////////////////
-
-//localStorage
-
-// function setLocalStorage() {
-//   localStorage.setItem("dataSerials", JSON.stringify(dataSerials));
-// }
-
-//si queremos guardar en localStorage los favoritos
-
-// function setLocalStorage() {
-//   localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
-//   console.log(localStorage);
-// }
-
-// //cuando localStorage tenga info guardada, pintar los datos guardados al recargar la pág
-
-// function getLocalStorage() {
-//   const localDataSerials = localStorage.getItem("favoritesList");
-//   //hago parse porque devuelve string y tengo que convertirlo a json
-//   const localDataSerialsJson = JSON.parse(localDataSerials);
-
-//   if (localDataSerialsJson === null) {
-//     getData();
-//   } else {
-//     dataSerials = localDataSerialsJson;
-//     paintCard();
-//     listenFav();
-//   }
-// }
