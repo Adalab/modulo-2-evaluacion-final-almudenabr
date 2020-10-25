@@ -65,7 +65,7 @@ function paintCard() {
 
     newLi.setAttribute("class", "js-cardsItem"); // add class to <li>
     newLi.setAttribute("id", `${i}`); //add id to <li>
-    // newLi.setAttribute("class", "container__containerCards--cardsItem");
+    newLi.setAttribute("class", "container__containerCards--cardsItem");
 
     newLi.appendChild(newParagraph); //add <p> with title to <li>
     newLi.appendChild(newDiv); //meto <div> en <li>
@@ -74,53 +74,22 @@ function paintCard() {
   }
 }
 
-//listen event click
+//listen event click to select favorite
 function selectFav(ev) {
   const indexClicked = parseInt(ev.currentTarget.id); //clicked ev
-  // favoritesList.push(clicked); //add new clicked ev to []
-  console.log(favoritesList);
-  console.log(indexClicked);
 
-  const elementsList = document.querySelectorAll("li");
+  const indexFav = favoritesList.indexOf(indexClicked); //gives the position value of clicked element
+  const theFavorite = indexFav != -1;
 
-  for (const elementList of elementsList) {
-    if (elementList.id === indexClicked) {
-    }
-  }
-
-  //.find() => localiza el elem: retorna undefined si no se encuentra, y si no su valor
-
-  const theFavorite = favoritesList.find(
-    (favoriteList) => favoriteList.id === indexClicked
-  );
-  console.log(theFavorite);
-
-  if (theFavorite === undefined) {
-    //buscar
-    const theFavId = dataSerials.findIndex(
-      (dataSerial) => dataSerial.show.id === indexClicked
-    );
-
-    favoritesList.push(theFavId);
-
-    console.log("entra en if");
+  if (theFavorite === false) {
+    console.log("lo meto en fav");
+    favoritesList.push(indexClicked); //add new clicked ev to []
     console.log(favoritesList);
   } else {
-    // favoritesList
-    console.log("entra en else");
+    console.log("lo quito de fav");
+    favoritesList.splice(indexFav, 1);
+    console.log(favoritesList);
   }
-
-  // for (const favoriteList of favoritesList) {
-  //   if (favoriteList === clicked) {
-  //     favoriteList.add("container__containerCards--cardsItem");
-  //     console.log("entra en if");
-  //   } else {
-  //     console.log("entra en else");
-
-  // favoritesList.remove("container__containerCards--cardsItem");
-  //   }
-  // }
-  // favoritesList.find;
 }
 
 //event click to select fav

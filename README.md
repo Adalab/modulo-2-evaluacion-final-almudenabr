@@ -16,7 +16,7 @@
 2.1-[x] Escuchar el evento click en cada serie
 2.2-[x] Identificar el elemento clicado
 2.3-[x] guardar los favoritos array
-2.4-[] añadir la clase de favorito
+2.4-[x] añadir la clase de favorito
 2.5-[] color de fondo y fuente se intercambian en las seleccionadas como favoritas
 2.6-[] los favoritos se guardan en listado a la izq - (array para almacenarlas)
 2.7-[] los favoritos siguen apareciendo a la izq con nueva búsqueda
