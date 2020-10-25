@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("hola main01");
+
 const btnSearch = document.querySelector(".js-btn");
 let section2 = document.querySelector(".js-section2");
 
@@ -19,14 +21,13 @@ function getData() {
     })
     .then(function (data) {
       // me da todo lo del json
-      dataSerials = data; //hago un array con las series
-
+      dataSerials = data; //hago un array con las series que ha buscado
       paintCard();
+      paintFav();
       listenFav();
     });
 }
 
-let newUl = "";
 let newLi = "";
 let newParagraph = "";
 let newDiv = "";
@@ -42,6 +43,7 @@ function paintCard() {
 
     const newImg = document.createElement("img"); //creo el <img>
     const nullImg = newImg.src;
+
     if (dataSerials[i].show.image != null) {
       newImg.src = dataSerials[i].show.image.medium; //añado a html la src de img: camino de la img
       newImg.alt = "Cartel de tu serie favorita"; //añado alt a img
@@ -64,29 +66,31 @@ function paintCard() {
     newLi.appendChild(newParagraph); //add <p> with title to <li>
     newLi.appendChild(newDiv); //meto <div> en <li>
 
-    document.querySelector("ul").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p>) en <ul>
+    document.querySelector(".js-containerCards").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p>) en <ul>
   }
 }
 
 //add value of ev and add it to array favoritesList[]
 
 let indexClicked = "";
-function selectFav(ev) {
-  indexClicked = parseInt(ev.currentTarget.id); //clicked ev
 
-  const indexFav = favoritesList.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
+function selectFav(ev) {
+  indexClicked = ev.currentTarget.id; //clicked ev
+
+  // Look for index:
+  let elementInDatSerialsSelected = dataSerials[indexClicked];
+
+  const indexFav = favoritesList.indexOf(elementInDatSerialsSelected); //.indexOF() gives the position value of clicked element, if element is not found returns -1
   const theFavorite = indexFav === -1;
 
   if (theFavorite === true) {
-    console.log("lo meto en fav");
-    favoritesList.push(indexClicked); //add new clicked ev to []
+    favoritesList.push(elementInDatSerialsSelected); //add new clicked ev to []
 
-    console.log(favoritesList);
+    console.log("añado", elementInDatSerialsSelected);
   } else {
-    console.log("lo quito de fav");
     favoritesList.splice(indexFav, 1);
 
-    console.log(favoritesList);
+    console.log("quito", elementInDatSerialsSelected);
   }
 }
 
@@ -113,7 +117,8 @@ function classFav() {
 
 function clickCard(ev) {
   selectFav(ev);
-  classFav(ev);
+  classFav();
+  paintFav();
 }
 
 //event click to select fav
