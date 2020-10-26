@@ -3,7 +3,7 @@ body {
   height: 100vh;
   background-color: $color-bg;
   font-family: $font-main;
-  // background-image: url(../images/backgroundCine.jpg);
+  background-image: url(../images/fondo-cine.jpg);
   background-size: cover;
   height: 100vh;
 }
@@ -15,22 +15,26 @@ body {
 
   &__form--input {
     width: 200px;
+    padding: 0 5px;
   }
 }
 .container {
   display: flex;
   justify-content: space-around;
+  padding: 20px 40px 0px 40px;
 
   &__containerFav {
     background: cyan;
+    list-style: none;
   }
 
   &__containerCards {
     background: darkblue;
     color: red;
+    list-style: none;
 
     &--cardsItem {
-      background: red;
+      background: cyan;
       color: darkblue;
     }
   }
