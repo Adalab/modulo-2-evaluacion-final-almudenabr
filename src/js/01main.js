@@ -18,7 +18,7 @@ function getData() {
     })
     .then(function (data) {
       dataSerials = data; //keep serials searched in array
-      // getLocalStorage();
+      getLocalStorage();
       setLocalStorage();
       paintCard();
       paintFav();

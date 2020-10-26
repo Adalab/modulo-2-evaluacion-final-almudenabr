@@ -15,7 +15,7 @@ function getLocalStorage() {
 
   favoritesList = JSON.parse(localFavoritesListJson);
 
-  // if (favoritesList === null) {
-  //   favoritesList = "";
-  // }
+  if (favoritesList === null) {
+    favoritesList = [];
+  }
 }
