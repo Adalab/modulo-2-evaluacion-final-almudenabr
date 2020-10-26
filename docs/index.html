@@ -8,14 +8,11 @@
       href="https://fonts.googleapis.com/css2?family=Grandstander:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="./assets/images/favicon-cine.png" />
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
     <div class="page">
-      <!-- <header class="page__header">
-        <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1></h1>
-      </header> -->
       <header>
         <h1 class="header">Buscador de series</h1>
       </header>
@@ -23,7 +20,7 @@
       <main>
         <div class="formContainer">
           <form class="formContainer__form" action="" method="get">
-            <label for="title">Nombre</label>
+            <label for="title">¿Qué vemos hoy?</label>
             <input
               class="formContainer__form--input js-input"
               placeholder="Escribe aquí tu serie"
@@ -31,13 +28,12 @@
               type="text"
               name="title"
               required
-              value="dexter"
             />
             <input
               class="js-btn"
               type="button"
               id="button"
-              value="Buscar mi serie favorita"
+              value="Encontrar mi serie favorita"
             />
           </form>
         </div>
@@ -47,19 +43,13 @@
             <ul class="container__containerFav js-containerFav"></ul>
           </section>
           <section class="js-section2">
-            <ul class="container__containerCards js-containerCards">
-              Series buscadas
-            </ul>
+            <ul class="container__containerCards js-containerCards"></ul>
           </section>
         </div>
       </main>
 
       <footer class="page__footer">
-        <small>
-          &copy; Todos los derechos reservados
-          <!-- <!-- <a class="link__adalab" href="https://adalab.es">Adalab</a> -->
-
-        </small>
+        <small> almudenabr &copy; Todos los derechos reservados </small>
       </footer>
 
 
