@@ -5,7 +5,7 @@ console.log("hola main01");
 const btnSearch = document.querySelector(".js-btn");
 let section2 = document.querySelector(".js-section2");
 
-//array de las series que me va a mostrar, que coge del fetch
+//array with serails to show, from fetch
 let dataSerials = [];
 let favoritesList = [];
 
@@ -101,6 +101,7 @@ function selectFav(ev) {
 let classFavList = [];
 function classFav() {
   //change class to <li> that matches with clicked element (indexClicked)
+
   const liClicked = classFavList.indexOf(indexClicked); //.indexOF() gives the position value of clicked element, if element is not found returns -1
   const modifyClass = liClicked === -1;
 

@@ -2,17 +2,17 @@
 
 //localStorage
 
-//si queremos guardar en localStorage los favoritos
+//set fav in localStorage
 
 function setLocalStorage() {
-  localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
+  localStorage.setItem("favoritesList", JSON.stringify(favoritesList)); // change data from json to string
   console.log(localStorage);
 }
 
-//cuando localStorage tenga info guardada, pintar los datos guardados al recargar la pág
+//when localStorage has info, paint cards when loading page
 
-function getLocalStorage() {
-  const localFavoritesListJson = localStorage.getItem("favoritesList"); //hago parse porque devuelve string y tengo que convertirlo a json
+// function getLocalStorage() {
+//   const localFavoritesListJson = localStorage.getItem("favoritesList"); //change data from string to json
 
-  favoritesList = JSON.parse(localFavoritesListJson);
-}
+//   favoritesList = JSON.parse(localFavoritesListJson);
+// }
