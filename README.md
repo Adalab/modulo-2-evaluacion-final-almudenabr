@@ -23,11 +23,11 @@
 
 2.6-[] localStorage
 
-3-[]eliminar value=game del input de html
+3-[x]eliminar value=game del input de html
 
 BONUS:
 
--[x] quitar la clase de favorito
+-[] quitar la clase de favorito clikando en x en la peli guardada en fav -[x] quitar la clase de favorito al hacer click en la peli
 -[] al hacer nueva búsqueda las series favoritas salen remarcadas en el resultado de búsqueda
 
 -[] maquetar css

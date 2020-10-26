@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("hola main01");
-
 const btnSearch = document.querySelector(".js-btn");
 let section2 = document.querySelector(".js-section2");
 
@@ -21,6 +19,7 @@ function getData() {
     .then(function (data) {
       dataSerials = data; //keep serials searched in array
       // getLocalStorage();
+      setLocalStorage();
       paintCard();
       paintFav();
       listenFav();
@@ -50,7 +49,7 @@ function paintCard() {
       newImg.alt = "Cartel de tu serie favorita"; //add alt to <img>
     } else {
       newImg.src = `https://via.placeholder.com/210x295/ffffff/008000/?text=${title}`; //paint default img
-      newImg.alt = "Imagen no disponible"; //añado alt a img
+      newImg.alt = "Imagen no disponible"; //add alt to <img>
     }
 
     newParagraph = document.createElement("p"); //create <p>
@@ -87,12 +86,8 @@ function selectFav(ev) {
 
   if (theFavorite === true) {
     favoritesList.push(elementInDataSerialsSelected); //add new clicked ev to []
-
-    console.log("añado", elementInDataSerialsSelected);
   } else {
     favoritesList.splice(indexFav, 1);
-
-    console.log("quito", elementInDataSerialsSelected);
   }
 }
 
@@ -106,8 +101,6 @@ function classFav() {
   const modifyClass = liClicked === -1;
 
   if (modifyClass === true) {
-    console.log("cambio clase a fav");
-
     const cardsItems = document.querySelectorAll(".js-cardsItem"); //cannot write it on top because it  still does not exist the class
 
     const li = cardsItems[indexClicked];
@@ -128,11 +121,10 @@ function clickCard(ev) {
 //event click to select fav
 
 function listenFav() {
-  const cardsItems = document.querySelectorAll(".js-cardsItem"); //no puedo subirlo arriba porque aún no existe la class
+  const cardsItems = document.querySelectorAll(".js-cardsItem"); //do not write it on top becuse it does not exist the class yet
   for (const cardsItem of cardsItems) {
     cardsItem.addEventListener("click", clickCard);
   }
 }
 
 btnSearch.addEventListener("click", getData);
-btnSearch.click(); // para quitar al final--se clicka el bton al cargar página

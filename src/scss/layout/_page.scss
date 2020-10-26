@@ -21,17 +21,26 @@ body {
 .container {
   display: flex;
   justify-content: space-around;
-  padding: 20px 40px 0px 40px;
+  padding: 20px 80px;
 
   &__containerFav {
     background: cyan;
     list-style: none;
+    width: 230px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   &__containerCards {
     background: darkblue;
     color: red;
     list-style: none;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
     &--cardsItem {
       background: cyan;

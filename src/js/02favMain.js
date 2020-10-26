@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("hola 02favMain");
-
 //fav list => paint cards and html in DOM <ul1>
 
 function paintFav() {
@@ -10,33 +8,32 @@ function paintFav() {
   for (let i = 0; i < favoritesList.length; i++) {
     title = favoritesList[i].show.name;
     newTitle = document.createTextNode(`${title}`); //create title of serial to be printed
-    console.log(paintFav);
 
-    const newImg = document.createElement("img"); //creo el <img>
+    const newImg = document.createElement("img"); //create <img>
     const nullImg = newImg.src;
 
     if (favoritesList[i].show.image != null) {
-      newImg.src = favoritesList[i].show.image.medium; //añado a html la src de img: camino de la img
-      newImg.alt = "Cartel de tu serie favorita"; //añado alt a img
+      newImg.src = favoritesList[i].show.image.medium;
+      newImg.alt = "Cartel de tu serie favorita";
     } else {
       newImg.src = `https://via.placeholder.com/210x295/ffffff/008000/?text=${title}`; //paint default img
-      newImg.alt = "Imagen no disponible"; //añado alt a img
+      newImg.alt = "Imagen no disponible";
     }
 
-    newParagraph = document.createElement("p"); //creo <p>
+    newParagraph = document.createElement("p"); //create <p>
     newParagraph.appendChild(newTitle); //add title to <p>
 
-    newDiv = document.createElement("div"); //creo <div>
-    newDiv.appendChild(newImg); //meto <img> en <div>
+    newDiv = document.createElement("div"); //create <div>
+    newDiv.appendChild(newImg); //keep <img> in <div>
 
-    newLi = document.createElement("li"); //creo el <li>
+    newLi = document.createElement("li"); //create <li>
 
     newLi.setAttribute("class", "js-cardsItemFav"); // add class to <li>
     newLi.setAttribute("id", `${i}`); //add id to <li>
 
     newLi.appendChild(newParagraph); //add <p> with title to <li>
-    newLi.appendChild(newDiv); //meto <div> en <li>
+    newLi.appendChild(newDiv); //keep <div> in <li>
 
-    document.querySelector(".js-containerFav").appendChild(newLi); //meto <li>(que ya tiene <div> conla img y <p>) en <ul>
+    document.querySelector(".js-containerFav").appendChild(newLi); //keep <li>(with its <div> and img and <p>) in <ul>
   }
 }
